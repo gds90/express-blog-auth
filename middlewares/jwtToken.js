@@ -13,7 +13,7 @@ const authenticationWithJWT = (req, res, next) => {
     // verifico l'autenticità del token
     const user = jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
         if (err) {
-            return res.status(403).json({ codice: 403, messaggio: "Non hai un token valido" });
+            return res.status(statusCode).json({ statusCode, error: err.message });
         }
         // se il token è valido, lo salvo in req.user 
         req.user = user;

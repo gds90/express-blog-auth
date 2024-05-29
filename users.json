@@ -1,7 +1,8 @@
 [
     {
         "username": "Giuseppe",
-        "password": "giuseppepsw"
+        "password": "giuseppepsw",
+        "admin": "true"
     },
     {
         "username": "Samuele",

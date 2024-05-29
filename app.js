@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const errorsFormatter = require('./middlewares/errorsFormatter.js');
+const errorsNotFound = require('./middlewares/errorsNotFound.js');
 const port = process.env.PORT || 3000;
 const postsRouter = require("./routers/posts.js");
 const authController = require('./controllers/auth.js');
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(errorsFormatter);
+app.use(errorsNotFound);
 
 // Server in ascolto
 app.listen(port, () => {
