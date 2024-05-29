@@ -1,18 +1,17 @@
 Esercizio
-Per il nostro blog, concentriamoci sul creare 2 rotte:
-/ [POST] - rotta store del crud che riceverà dei dati e creerà un nuovo post. Questa dovrà riceve i dati in formato application/x-www-urlencoded e dovrà ritornare un redirect nel caso di richiesta html, altrimenti di default il json dell’elemento appena creato
+Creiamo le seguenti rotte:
+home
+posts/ (index)
+posts/ (store)
+posts/:slug (show)
 
-/:slug [DELETE] - rotta destroy del crud che dovrà, attraverso un middleware, ritornare un 404 nel caso non sia stato trovato un post corrispondente. Ritornare un redirect nel caso di richiesta html, altrimenti di default del testo con scritto “post eliminato”.
+Tramite JTW creiamo una rotta per autenticare un utente ed ottenere il Token JWT e tramite un middleware limitiamo l'accesso alla rotta store dei post ai soli utenti loggati.
 
-Aggiungiamo un middleware globale per gestire gli errori.
+Gestiamo, attraverso dei middlewares, gli errori e le pagine 404.
+Questi middleware dovranno rispondere con un json contente il codice ed il messaggio dell'errore.
 
-Tutte le funzioni delle rotte dovranno essere scritte nel controller dedicato.
+Svolgiamo tutto l'esercizio tramite relativi controller e router.
 
-Testare le rotte tramite Postman.
-
-Bonus:
-Tramite una funzione, salvare l'array dei post nel file .json
-
-nella funzione store permettere di passare i dati nel formato multipart/form-data tramite multer
-
-permettere di eseguire l'upload dell'immagine principale del post.
+Bonus
+Ritornare un errore diverso nel caso il jwt sia non valido o scaduto
+Creare un middleware per proteggere le rotte riservate agli utenti admin
