@@ -2,12 +2,16 @@ require('dotenv').config();
 const express = require('express');
 const errorsFormatter = require('./middlewares/errorsFormatter.js');
 const port = process.env.PORT || 3000;
+const postsRouter = require("./routers/posts.js");
+const authController = require('./controllers/auth.js');
 
 const app = express();
-const postsRouter = require("./routers/posts.js");
 
 // Asset statico per la cartella public
 app.use(express.static('public'));
+app.use(express.json());
+
+app.post('/login', authController.login);
 
 // Post router
 app.use("/posts", postsRouter);
